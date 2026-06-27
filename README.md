@@ -1,2 +1,2 @@
 # game-server-cpu-scheduler
-A simple operating systems project that recommends suitable CPU scheduling algorithms for different game mode requirements.
+An OS project that analyzes different CPU scheduling algorithms for various game modes and compares them with benchmark algorithms to determine the most efficient scheduling strategy.
