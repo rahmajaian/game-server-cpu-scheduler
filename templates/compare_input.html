@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compare All Algorithms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="title">Compare All Algorithms</h1>
+    <p class="subtitle">Game Mode → {{ mode_name }}</p>
+
+    <div class="form-card">
+        <form method="POST">
+
+            <label>Number of Processes</label>
+            <input
+                type="number"
+                name="n"
+                min="1"
+                value="{{ old_n }}"
+                required
+            >
+
+            <label>Arrival Times</label>
+            <input
+                type="text"
+                name="arrival_times"
+                placeholder="0,1,2,3"
+                value="{{ old_at }}"
+                required
+            >
+
+            <label>Burst Times</label>
+            <input
+                type="text"
+                name="burst_times"
+                placeholder="5,3,4,2"
+                value="{{ old_bt }}"
+                required
+            >
+
+            <label>Time Quantum (Round Robin)</label>
+            <input
+                type="number"
+                name="quantum"
+                min="1"
+                value="{{ old_quantum }}"
+                required
+            >
+
+            <label>Priorities (Priority Scheduling)</label>
+            <input
+                type="text"
+                name="priorities"
+                placeholder="1,2,3,4"
+                value="{{ old_priorities }}"
+                required
+            >
+
+            <button class="btn" type="submit">
+                Compare Algorithms
+            </button>
+
+        </form>
+    </div>
+
+    <div class="nav-buttons" style="margin-top:20px;">
+        <a href="{{ url_for('mode_details', mode_slug=mode_slug) }}">
+            <button class="btn">Back to Mode</button>
+        </a>
+
+        <a href="{{ url_for('home') }}">
+            <button class="btn">Home</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

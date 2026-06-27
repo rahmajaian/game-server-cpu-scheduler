@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Algorithms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="page-header">
+        <h1 class="title">PROCESS ARENA</h1>
+        <h2 class="subtitle">{{ mode_name }} - Select Algorithm</h2>
+    </div>
+
+    <div class="algorithm-list">
+
+        <a class="algorithm-btn" href="{{ url_for('run_algorithm', algo='FCFS') }}">
+            FCFS (Non-Preemptive)
+        </a>
+
+        <a class="algorithm-btn" href="{{ url_for('run_algorithm', algo='SJF') }}">
+            SJF (Non-Preemptive)
+        </a>
+
+        <a class="algorithm-btn" href="{{ url_for('run_algorithm', algo='LJF') }}">
+            LJF (Non-Preemptive)
+        </a>
+
+        <a class="algorithm-btn" href="{{ url_for('run_algorithm', algo='SRTF') }}">
+            SRTF (Preemptive)
+        </a>
+
+        <a class="algorithm-btn" href="{{ url_for('run_algorithm', algo='LRTF') }}">
+            LRTF (Preemptive)
+        </a>
+
+        <a class="algorithm-btn" href="{{ url_for('run_algorithm', algo='RR') }}">
+            Round Robin
+        </a>
+
+        <a class="algorithm-btn" href="{{ url_for('run_algorithm', algo='Priority') }}">
+            Priority Scheduling
+        </a>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="{{ url_for('mode_details', mode_slug=mode_slug) }}">
+            <button class="btn">Back</button>
+        </a>
+
+        <a href="{{ url_for('home') }}">
+            <button class="btn">Home</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

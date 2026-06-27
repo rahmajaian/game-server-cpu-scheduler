@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Comparison</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="title">PROCESS ARENA COMPARISON</h1>
+    <p class="subtitle">{{ mode_name }} Mode</p>
+
+    <div class="form-card" style="margin-bottom: 25px;">
+        <h2>Comparison Overview</h2>
+        <p>
+            The following table compares all implemented CPU scheduling algorithms
+            for the selected <strong>{{ mode_name }}</strong> workload.
+        </p>
+        <p>
+            <strong>Benchmark Algorithm:</strong> {{ benchmark }}
+        </p>
+        <p>
+            Rankings are determined using the calculated suitability score
+            based on average waiting time and average turnaround time.
+        </p>
+    </div>
+
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Algorithm</th>
+            <th>Average WT</th>
+            <th>Average TAT</th>
+            <th>Suitability</th>
+            <th>Advice</th>
+        </tr>
+
+        {% for name, data in results %}
+        <tr class="{% if name == best %}best-row{% endif %}{% if name == benchmark %} benchmark-row{% endif %}">
+            <td>#{{ data.rank }}</td>
+
+            <td>
+                {% if name == best %}
+                    🏆 {{ name }}
+                {% else %}
+                    {{ name }}
+                {% endif %}
+            </td>
+
+            <td>{{ data.avgWT }}</td>
+            <td>{{ data.avgTAT }}</td>
+            <td>{{ data.score }}%</td>
+
+            <td class="advice-cell">
+                {% if data.score >= 90 %}
+                    <strong>Excellent Fit:</strong>
+                    {{ name }} demonstrates very strong scheduling efficiency for this mode,
+                    offering low delay and highly competitive turnaround performance.
+                {% elif data.score >= 75 %}
+                    <strong>Strong Choice:</strong>
+                    {{ name }} performs reliably for this workload and can be considered
+                    a practical scheduling option with good overall balance.
+                {% elif data.score >= 55 %}
+                    <strong>Moderate Fit:</strong>
+                    {{ name }} can handle the workload, but its performance is less
+                    competitive than the leading algorithms for this scenario.
+                {% else %}
+                    <strong>Limited Suitability:</strong>
+                    {{ name }} is not an ideal scheduling choice for this mode,
+                    as it may lead to higher waiting time or weaker responsiveness.
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <div class="form-card best-summary-card">
+        <h2>🏆 Best Algorithm: {{ best }}</h2>
+        <p>
+            <strong>{{ best }}</strong> achieved the highest suitability score for
+            <strong>{{ mode_name }}</strong> mode in this comparison.
+        </p>
+
+        <p>
+            Based on the measured waiting time and turnaround time results,
+            it provides the most balanced and effective scheduling behavior
+            among the tested algorithms for this workload.
+        </p>
+
+        {% if best == benchmark %}
+        <p>
+            It also matches the predefined benchmark algorithm for this game mode,
+            which further supports its suitability for the selected environment.
+        </p>
+        {% endif %}
+    </div>
+
+    <br>
+
+    <div class="nav-buttons">
+        <a href="{{ url_for('algorithms_page') }}">
+            <button class="btn">Try Algorithm</button>
+        </a>
+
+        <a href="{{ url_for('mode_details', mode_slug=mode_slug) }}">
+            <button class="btn">Back to Mode</button>
+        </a>
+
+        <a href="{{ url_for('home') }}">
+            <button class="btn">Home</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

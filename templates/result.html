@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ algorithm }} Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="title">{{ algorithm }} Result</h1>
+    <p class="subtitle">Game Mode → {{ mode_name }}</p>
+
+    <div class="form-card">
+        <h2>Selected Mode Analysis</h2>
+
+        <p><strong>Game Mode:</strong> {{ mode_name }}</p>
+        <p><strong>Chosen Algorithm:</strong> {{ algorithm }}</p>
+        <p><strong>Benchmark Algorithm:</strong> {{ benchmark }}</p>
+
+        {% if score is not none %}
+            <h3>Compatibility Score: {{ score }}%</h3>
+        {% else %}
+            <h3>Compatibility Score: Not Available</h3>
+        {% endif %}
+
+        <p>{{ advice }}</p>
+        <p><strong>Mode Verdict:</strong> {{ verdict }}</p>
+    </div>
+
+    <br>
+
+    <h2>Process Table</h2>
+
+    <table>
+        <tr>
+            <th>Process</th>
+            <th>AT</th>
+            <th>BT</th>
+            <th>CT</th>
+            <th>TAT</th>
+            {% if algorithm == "Priority" %}
+            <th>Priority</th>
+            {% endif %}
+            <th>WT</th>
+        </tr>
+
+        {% for i in range(result.p|length) %}
+        <tr>
+            <td>P{{ result.p[i] }}</td>
+            <td>{{ result.at[i] }}</td>
+            <td>{{ result.bt[i] }}</td>
+            <td>{{ result.ct[i] }}</td>
+            <td>{{ result.tat[i] }}</td>
+            {% if algorithm == "Priority" %}
+            <td>{{ result.priority[i] }}</td>
+            {% endif %}
+            <td>{{ result.wt[i] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <h3>Average Waiting Time: {{ result.avgWT }}</h3>
+    <h3>Average Turnaround Time: {{ result.avgTAT }}</h3>
+
+    <br>
+
+    <h2>Gantt Chart</h2>
+
+    <div class="gantt-chart">
+        {% if result.gantt %}
+            {{ result.gantt[0][1] }}
+            {% for item in result.gantt %}
+                | {{ item[0] }} | {{ item[2] }}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <br><br>
+
+    <div class="nav-buttons">
+        <a href="{{ url_for('algorithms_page') }}">
+            <button class="btn">Try Other Algorithm</button>
+        </a>
+
+        <a href="{{ url_for('compare') }}">
+            <button class="btn">Compare All Algorithms</button>
+        </a>
+
+        <a href="{{ url_for('mode_details', mode_slug=mode_slug) }}">
+            <button class="btn">Back to Mode</button>
+        </a>
+    </div>
+
+    <div class="nav-buttons" style="margin-top:15px;">
+        <a href="{{ url_for('home') }}">
+            <button class="btn">Home</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

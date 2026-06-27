@@ -1,0 +1,496 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0a0a0f, #111827, #0f172a);
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   LANDING PAGE
+========================= */
+.landing-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.landing-card {
+    width: 90%;
+    max-width: 850px;
+    background: rgba(20, 20, 35, 0.9);
+    border: 1px solid #00e5ff;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
+    border-radius: 18px;
+    padding: 50px 35px;
+    text-align: center;
+    animation: slideUp 1.2s ease forwards;
+}
+
+.main-title {
+    font-size: 3rem;
+    color: #00e5ff;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #ff4ecd;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 1rem;
+    color: #d1d5db;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   GENERAL CONTAINER
+========================= */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 25px;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #00e5ff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.subtitle {
+    text-align: center;
+    color: #d1d5db;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+
+/* =========================
+   CARD GRID
+   Fixed: 3 cards top + 3 cards bottom
+========================= */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 25px;
+    max-width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mode-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card {
+    background: rgba(17, 24, 39, 0.92);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: #00e5ff;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
+}
+
+.mode-card h2 {
+    color: #00e5ff;
+    margin-bottom: 12px;
+}
+
+.mode-card p {
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+
+/* =========================
+   FORM CARD
+========================= */
+.form-card {
+    background: rgba(17, 24, 39, 0.95);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+.form-card h2,
+.form-card h3 {
+    color: #00e5ff;
+    margin-bottom: 15px;
+}
+
+.form-card p {
+    color: #dbe4ee;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #e2e8f0;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #475569;
+    background: #0f172a;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus {
+    border-color: #00e5ff;
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.35);
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+    background: linear-gradient(90deg, #00e5ff, #ff4ecd);
+    color: #0b1020;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin: 8px;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.35);
+}
+
+.start-btn {
+    font-size: 1.1rem;
+    padding: 14px 28px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+/* =========================
+   ALGORITHM BUTTONS
+========================= */
+.algorithm-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 700px;
+    margin: 0 auto 25px;
+}
+
+.algorithm-btn {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background: rgba(17, 24, 39, 0.95);
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid #334155;
+    transition: 0.3s ease;
+    font-weight: bold;
+}
+
+.algorithm-btn:hover {
+    border-color: #00e5ff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.25);
+}
+
+
+/* =========================
+   MODE DETAILS
+========================= */
+.mode-list {
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: #e5e7eb;
+    line-height: 1.8;
+}
+
+.suggested-list {
+    margin-top: 10px;
+}
+
+.suggested-badge {
+    display: inline-block;
+    background: #1e293b;
+    border: 1px solid #00e5ff;
+    color: #00e5ff;
+    padding: 8px 14px;
+    border-radius: 999px;
+    margin: 6px 6px 0 0;
+    font-weight: bold;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: rgba(17, 24, 39, 0.95);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.25);
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #334155;
+}
+
+th {
+    background: #0f172a;
+    color: #00e5ff;
+    font-weight: 700;
+}
+
+td {
+    color: #e5e7eb;
+}
+
+
+/* =========================
+   GANTT CHART
+========================= */
+.gantt-chart {
+    background: rgba(17, 24, 39, 0.95);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 20px;
+    color: #00e5ff;
+    font-weight: bold;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   COMPARE RESULT TABLE
+========================= */
+
+/* Best algorithm row */
+.best-row {
+    background: rgba(0, 229, 255, 0.08);
+    border-left: 4px solid #00e5ff;
+}
+
+.best-row td {
+    font-weight: 600;
+}
+
+/* Benchmark algorithm row */
+.benchmark-row {
+    background: rgba(168, 85, 247, 0.08);
+    border-left: 4px solid #a855f7;
+}
+
+.benchmark-row td {
+    font-weight: 600;
+}
+
+/* If same row is both best and benchmark */
+.best-row.benchmark-row {
+    background: linear-gradient(
+        90deg,
+        rgba(0, 229, 255, 0.12),
+        rgba(168, 85, 247, 0.10)
+    );
+    border-left: 4px solid #00e5ff;
+}
+
+.best-row.benchmark-row td {
+    font-weight: 700;
+}
+
+/* Rank number inside table */
+.rank-badge {
+    display: inline-block;
+    min-width: 60px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
+    font-weight: 700;
+}
+
+/* Best algorithm badge */
+.best-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: rgba(0, 229, 255, 0.16);
+    color: #67e8f9;
+    border: 1px solid rgba(0, 229, 255, 0.35);
+}
+
+/* Benchmark badge */
+.benchmark-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: rgba(168, 85, 247, 0.16);
+    color: #d8b4fe;
+    border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+/* Suitability score */
+.score-text {
+    font-weight: 700;
+    color: #7dd3fc;
+}
+
+/* Advice column */
+.advice-cell {
+    text-align: left;
+    line-height: 1.7;
+    padding: 16px 18px;
+    min-width: 280px;
+    color: #dbe4ee;
+}
+
+/* Best summary card */
+.best-summary-card {
+    border: 1px solid rgba(0, 229, 255, 0.28);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.08);
+}
+
+.best-summary-card h2 {
+    color: #00e5ff;
+    margin-bottom: 12px;
+}
+
+.best-summary-card p {
+    color: #dbe4ee;
+    line-height: 1.7;
+}
+
+/* Comparison note card */
+.comparison-note {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 14px;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(71, 85, 105, 0.5);
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 750px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.2rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .form-card {
+        padding: 20px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .advice-cell {
+        min-width: 220px;
+        font-size: 0.9rem;
+    }
+}

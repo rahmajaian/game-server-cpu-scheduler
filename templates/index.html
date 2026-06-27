@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="landing-container">
+        <div class="landing-card">
+            <h1 class="main-title">PROCESS ARENA</h1>
+            <p class="tagline">Gaming-Themed CPU Scheduling Simulator</p>
+
+            <p class="description">
+                Explore how different CPU scheduling algorithms perform in different
+                gaming scenarios like FPS, Battle Royale, MOBA, RPG, Racing, and Strategy.
+            </p>
+
+            <a href="{{ url_for('modes_page') }}">
+                <button class="btn start-btn">Get Started</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

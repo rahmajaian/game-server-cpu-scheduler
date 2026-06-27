@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ mode_name }} - Process Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="title">PROCESS ARENA</h1>
+    <h2 class="subtitle">{{ mode_name }} Mode</h2>
+
+    <div class="form-card">
+        <h2>Mode Characteristics</h2>
+
+        <p><strong>Description:</strong> {{ mode.description }}</p>
+        <p><strong>Workload:</strong> {{ mode.workload }}</p>
+
+        <h3>Performance Requirements</h3>
+        <ul class="mode-list">
+            {% for item in mode.requirements %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Suggested Algorithms</h3>
+        <div class="suggested-list">
+            {% for algo in mode.suggested %}
+                <span class="suggested-badge">{{ algo }}</span>
+            {% endfor %}
+        </div>
+
+        <p style="margin-top:20px;">
+            <strong>Benchmark Algorithm:</strong> {{ benchmark }}
+        </p>
+    </div>
+
+    <div class="nav-buttons" style="margin-top:30px;">
+        <a href="{{ url_for('algorithms_page') }}">
+            <button class="btn">Choose Algorithm</button>
+        </a>
+
+        <a href="{{ url_for('compare') }}">
+            <button class="btn">Compare All Algorithms</button>
+        </a>
+    </div>
+
+    <div class="nav-buttons" style="margin-top:15px;">
+        <a href="{{ url_for('modes_page') }}">
+            <button class="btn">Back to Game Modes</button>
+        </a>
+
+        <a href="{{ url_for('home') }}">
+            <button class="btn">Home</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
